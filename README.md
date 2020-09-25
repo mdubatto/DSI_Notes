@@ -1,2 +1,14 @@
 # DSI_Notes
-This is to track my noted for the Galvanize DSI.
+This is to track my notes for the Galvanize DSI.
+
+______________________________________________
+
+## List of things to look into:
+
+* MyPy (DropBox is currently working on MyPyC)
+
+______________________________________________
+
+## Links:
+
+* [Color Brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
