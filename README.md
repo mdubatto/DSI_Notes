@@ -12,3 +12,4 @@ ______________________________________________
 ## Links:
 
 * [Color Brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
+* [Univariate Distribution Relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
