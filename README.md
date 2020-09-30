@@ -11,5 +11,24 @@ ______________________________________________
 
 ## Links:
 
-* [Color Brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
-* [Univariate Distribution Relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
+* [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
+* [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
+* [Visualizing `scipy.stats` distributions](https://stackoverflow.com/questions/37559470/what-do-all-the-distributions-available-in-scipy-stats-look-like)
+* [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+
+
+______________________________________________
+
+## Bash Scripting
+* bash profile location on OSX: `~/.bash_profile`
+
+#### how to make a bash function:
+
+```bash
+function gitadder(){
+    git pull
+    git add .
+    git commit -m "Auto Update: $(date '+%d/%m/%Y %H:%M:%S')"
+    git push
+}
+```
