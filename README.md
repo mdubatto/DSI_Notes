@@ -31,10 +31,12 @@ function gitadder(){
     git add .
     if [ "$1" != "" ]
         then
-            git commit -m "$1: $(date '+%m/%d/%Y %H:%M:%S')"
+            git commit -m "$1: $(date '+%b %d, %Y %H:%M:%S')"
         else
-            git commit -m "Auto Update: $(date '+%m/%d/%Y %H:%M:%S')"
+            git commit -m "Auto Update: $(date '+%b %d, %Y %H:%M:%S')"
+        fi
     git push
 }
+
 ```
 
