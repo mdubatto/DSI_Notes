@@ -1,6 +1,9 @@
 # DSI_Notes
 This is to track my notes for the Galvanize DSI.
 
+# Tables of Contents:
+* [Links](#links)
+* [CLI](#cli)
 ______________________________________________
 
 ## List of things to look into:
@@ -9,7 +12,7 @@ ______________________________________________
 
 ______________________________________________
 
-## Links:
+## <a name="links">Links</a>:
 
 * [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
@@ -19,7 +22,7 @@ ______________________________________________
 
 ______________________________________________
 
-## Bash Scripting
+## <a name="links">Bash / zsh Scripting</a>:
 * bash profile location on OSX: `~/.bash_profile`
 * for zsh use: `~/.zshrc`
 
@@ -37,6 +40,14 @@ function gitadder(){
         fi
     git push
 }
-
 ```
 
+### call this function using:
+
+```bash
+gitadder "Enter update text"
+
+# Or just...
+
+gitadder
+```
