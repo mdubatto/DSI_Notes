@@ -79,10 +79,11 @@ ______________________________________________
                            columns=['Letters','Numbers'])
         ```
 
-    * from csv (use parameter sep='\t' for txt file)
+    * from csv (use parameter `sep='\t'` for txt file)
 
         ```python
-        df = pd.read_csv('filename.csv')
+        df_csv = pd.read_csv('filename.csv')
+        df_txt = pd.read_csv('filename.txt', sep='\t')
         ```
 
 * Drop a column
@@ -101,6 +102,12 @@ ______________________________________________
 
     ```python
     s.value_counts(dropna=False)
+    ```
+
+* Fill NA with mean (mean can be replaced with other stat functions)
+
+    ```python
+    s.fillna(s.mean())
     ```
 
 ## <a name="numpy">Numpy</a>
