@@ -29,7 +29,11 @@ ______________________________________________
 function gitadder(){
     git pull
     git add .
-    git commit -m "Auto Update: $(date '+%d/%m/%Y %H:%M:%S')"
+    if [ "$1" != "" ]
+        then
+            git commit -m "$1: $(date '+%m/%d/%Y %H:%M:%S')"
+        else
+            git commit -m "Auto Update: $(date '+%m/%d/%Y %H:%M:%S')"
     git push
 }
 ```
