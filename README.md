@@ -1,4 +1,4 @@
-# DSI Notes
+# <a name="top">DSI Notes</a>
 
 # Tables of Contents:
 * [CLI Scripting](#cli)
@@ -58,6 +58,7 @@ gitadder "Enter update text"
 gitadder
 ```
 
+[Back to top](#top)
 ______________________________________________
 
 # <a name="git">Git</a>
@@ -77,6 +78,12 @@ ______________________________________________
 * `git add [filename1 filename2]` - Adds only listed files to the staging area
 
 * `git commit -m "[Enter commit message]"` - Creates a new commit containing the current contents of the index
+
+* `git pull` - Fetches and merges changes on the remote server to your working directory
+
+* `git push` - Send your updates and new files to the remote repository
+
+[Back to top](#top)
 
 ______________________________________________
 
