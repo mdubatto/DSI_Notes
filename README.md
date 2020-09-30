@@ -84,7 +84,6 @@ ______________________________________________
 * `git push` - Send your updates and new files to the remote repository
 
 [Back to top](#top)
-
 ______________________________________________
 
 # <a name="python">Python</a>
@@ -144,6 +143,8 @@ s.fillna(s.mean())
 norm_dates = pd.to_datetime(str_dates, format='%Y%m%d')
 ```
 
+[Back to top](#top)
+
 ## <a name="numpy">Numpy</a>
 
 #### Create an array
@@ -176,11 +177,19 @@ a = np.arange(1,10,2)
 a = np.linespace(1,10,100)
 ```
 
+[Back to top](#top)
+
 ## <a name="scipy">Scipy</a>
 
+
+[Back to top](#top)
 
 ## <a name="matplot">matplotlib</a>
 
 ______________________________________________
 
 # <a name="mlw">Machine Learning Workflow</a>
+
+
+
+[Back to top](#top)
