@@ -66,8 +66,8 @@ ______________________________________________
     * from a dictionary (creating by columns)
 
         ```python
-        df = pd.DataFrame({'k1': value_lst1,
-                           'k2': value_lst2})
+        df = pd.DataFrame({'Letters': ['a','b','c'],
+                           'Numbers': [1,2,3]})
         ```
 
     * from list of lists (creating by rows)
