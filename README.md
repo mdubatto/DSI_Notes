@@ -158,7 +158,6 @@ ______________________________________________
     a = np.array([1,2,3,4,5,6]).reshape(2,3)  # 2 rows, 3 cols
     ```
 
-## <a name="scipy">Scipy</a>
 * Create an array of evenly spaced values (by step)
 
     ```python
@@ -170,6 +169,9 @@ ______________________________________________
     ```python
     a = np.linespace(1,10,100)
     ```
+
+## <a name="scipy">Scipy</a>
+
 
 ## <a name="matplot">matplotlib</a>
 
