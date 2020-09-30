@@ -22,7 +22,7 @@ ______________________________________________
 
 ______________________________________________
 
-## <a name="links">Bash / zsh Scripting</a>:
+## <a name="cli">Bash / zsh Scripting</a>:
 * bash profile location on OSX: `~/.bash_profile`
 * for zsh use: `~/.zshrc`
 
