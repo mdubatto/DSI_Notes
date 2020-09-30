@@ -21,6 +21,7 @@ ______________________________________________
 
 ## Bash Scripting
 * bash profile location on OSX: `~/.bash_profile`
+* for zsh use: `~/.zshrc`
 
 #### how to make a bash function:
 
