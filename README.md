@@ -20,11 +20,11 @@ ______________________________________________
 
 # Links:
 
+* [DateTime](https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/)
 * [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
 * [Visualizing `scipy.stats` distributions](https://stackoverflow.com/questions/37559470/what-do-all-the-distributions-available-in-scipy-stats-look-like)
 * [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
-
 
 ______________________________________________
 
@@ -62,7 +62,7 @@ ______________________________________________
 # <a name="python">Python</a>
 
 ## <a name="pandas">Pandas</a>
-* creating a DataFrame
+* Create a DataFrame
     * from a dictionary (creating by columns)
 
         ```python
@@ -110,9 +110,44 @@ ______________________________________________
     s.fillna(s.mean())
     ```
 
+* Convert a series of str formatted dates into a datetime type
+
+    ```python
+    norm_dates = pd.to_datetime(str_dates, format='%Y%m%d')
+    ```
+
 ## <a name="numpy">Numpy</a>
 
+* Create an array
+
+    ```python
+    a = np.array([1,2,3,4,5,6])     # 1D
+    b = np.array([[1,2,3],          # 2D
+                  [4,5,6]])
+    c = np.array([[[1,2,3],         # 3D
+                   [4,5,6]],
+                  [[7,8,9],
+                   [10,11,12]]])
+    ```
+
+* Reshape array
+
+    ```python
+    a = np.array([1,2,3,4,5,6]).reshape(2,3)  # 2 rows, 3 cols
+    ```
+
 ## <a name="scipy">Scipy</a>
+* Create an array of evenly spaced values (by step)
+
+    ```python
+    a = np.arange(1,10,2)
+    ```
+
+* Create an array of evenly spaced values (by # of samples)
+
+    ```python
+    a = np.linespace(1,10,100)
+    ```
 
 ## <a name="matplot">matplotlib</a>
 
