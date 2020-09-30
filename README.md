@@ -3,6 +3,7 @@ This is to track my notes for the Galvanize DSI.
 
 # Tables of Contents:
 * [CLI Scripting](#cli)
+* [Git](#git)
 * [Python](#python)
     * [Pandas](#pandas)
     * [Numpy](#numpy)
@@ -21,6 +22,7 @@ ______________________________________________
 # Links:
 
 * [DateTime](https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/)
+* [Git Reference](https://git-scm.com/docs)
 * [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
 * [Visualizing `scipy.stats` distributions](https://stackoverflow.com/questions/37559470/what-do-all-the-distributions-available-in-scipy-stats-look-like)
@@ -28,11 +30,11 @@ ______________________________________________
 
 ______________________________________________
 
-# <a name="cli">CLI Scripting</a>:
+# <a name="cli">CLI Scripting</a>
 * bash profile location on OSX: `~/.bash_profile`
 * for zsh use: `~/.zshrc`
 
-#### how to make a bash / zsh function:
+#### how to make a bash / zsh function
 
 ```zsh
 function gitadder(){
@@ -47,7 +49,7 @@ function gitadder(){
 }
 ```
 
-#### call this function using:
+#### call this function using
 
 ```zsh
 gitadder "Enter update text"
@@ -56,6 +58,26 @@ gitadder "Enter update text"
 
 gitadder
 ```
+
+______________________________________________
+
+# <a name="git">Git</a>
+
+* `git status` - Display the state of the working directory and the staging area and see which changes have been staged, which haven't, and which files aren't being tracked by Git
+
+* `git log` - View version history of current branch (to exit this type `q`)
+
+* `git reset [file]` - Unstages the file, but it preserves the file contents.
+
+* `git reset [commit]` - Undoes all the commits after the specified commit and preserves the changes locally.
+
+* `git add .` - Adds all files from the root directory to the staging area
+
+* `git add -A` - Adds all files root and sub directories to the staging area
+
+* `git add [filename1 filename2]` - Adds only listed files to the staging area
+
+* `git commit -m "[Enter commit message]"` - Creates a new commit containing the current contents of the index
 
 ______________________________________________
 
