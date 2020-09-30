@@ -1,5 +1,4 @@
-# DSI_Notes
-This is to track my notes for the Galvanize DSI.
+# DSI Notes
 
 # Tables of Contents:
 * [CLI Scripting](#cli)
@@ -84,91 +83,91 @@ ______________________________________________
 # <a name="python">Python</a>
 
 ## <a name="pandas">Pandas</a>
-* Create a DataFrame
-    * from a dictionary (creating by columns)
-
-        ```python
-        df = pd.DataFrame({'Letters': ['a','b','c'],
-                           'Numbers': [1,2,3]})
-        ```
-
-    * from list of lists (creating by rows)
-
-        ```python
-        df = pd.DataFrame([['a', 1],
-                           ['b', 2],
-                           ['c', 3]],
-                           columns=['Letters','Numbers'])
-        ```
-
-    * from csv (use parameter `sep='\t'` for txt file)
-
-        ```python
-        df_csv = pd.read_csv('filename.csv')
-        df_txt = pd.read_csv('filename.txt', sep='\t')
-        ```
-
-* Drop a column
+#### Create a DataFrame
+* from a dictionary (creating by columns)
 
     ```python
-    df.drop('col_1', axis = 1)
+    df = pd.DataFrame({'Letters': ['a','b','c'],
+                       'Numbers': [1,2,3]})
     ```
 
-* Rename columns
+* from list of lists (creating by rows)
 
     ```python
-    df.rename(columns={'old_name': 'new_name'})
+    df = pd.DataFrame([['a', 1],
+                       ['b', 2],
+                       ['c', 3]],
+                       columns=['Letters','Numbers'])
     ```
 
-* Value counts for a column (i.e. series)
+* from csv (use parameter `sep='\t'` for txt file)
 
     ```python
-    s.value_counts(dropna=False)
+    df_csv = pd.read_csv('filename.csv')
+    df_txt = pd.read_csv('filename.txt', sep='\t')
     ```
 
-* Fill NA with mean (mean can be replaced with other stat functions)
+#### Drop a column
 
-    ```python
-    s.fillna(s.mean())
-    ```
+```python
+df.drop('col_1', axis = 1)
+```
 
-* Convert a series of str formatted dates into a datetime type
+#### Rename columns
 
-    ```python
-    norm_dates = pd.to_datetime(str_dates, format='%Y%m%d')
-    ```
+```python
+df.rename(columns={'old_name': 'new_name'})
+```
+
+#### Value counts for a column (i.e. series)
+
+```python
+s.value_counts(dropna=False)
+```
+
+#### Fill NA with mean (mean can be replaced with other stat functions)
+
+```python
+s.fillna(s.mean())
+```
+
+#### Convert a series of str formatted dates into a datetime type
+
+```python
+norm_dates = pd.to_datetime(str_dates, format='%Y%m%d')
+```
 
 ## <a name="numpy">Numpy</a>
 
-* Create an array
+#### Create an array
 
-    ```python
-    a = np.array([1,2,3,4,5,6])     # 1D
-    b = np.array([[1,2,3],          # 2D
-                  [4,5,6]])
-    c = np.array([[[1,2,3],         # 3D
-                   [4,5,6]],
-                  [[7,8,9],
-                   [10,11,12]]])
-    ```
+```python
+a = np.array([1,2,3,4,5,6])     # 1D
+b = np.array([[1,2,3],          # 2D
+              [4,5,6]])
+c = np.array([[[1,2,3],         # 3D
+               [4,5,6]],
+              [[7,8,9],
+               [10,11,12]]])
+```
 
-* Reshape array
+#### Reshape array
 
-    ```python
-    a = np.array([1,2,3,4,5,6]).reshape(2,3)  # 2 rows, 3 cols
-    ```
+```python
+a = np.array([1,2,3,4,5,6]).reshape(2,3)  # 2 rows, 3 cols
+```
 
-* Create an array of evenly spaced values (by step)
+#### Create an array of evenly spaced values (by step)
 
-    ```python
-    a = np.arange(1,10,2)
-    ```
+```python
+a = np.arange(1,10,2)
+```
 
-* Create an array of evenly spaced values (by # of samples)
+#### Create an array of evenly spaced values (by # of samples)
 
-    ```python
-    a = np.linespace(1,10,100)
-    ```
+```python
+a = np.linespace(1,10,100)
+```
 
 ## <a name="scipy">Scipy</a>
 
