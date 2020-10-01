@@ -81,7 +81,7 @@ ______________________________________________
 
 * `git pull` - Fetches and merges changes on the remote server to your working directory
 
-* `git push` - Send your updates and new files to the remote repository
+* `git push` - Send your updates and new files in your commit from your local machine to the remote repository
 
 [Back to top](#top)
 ______________________________________________
@@ -144,6 +144,7 @@ norm_dates = pd.to_datetime(str_dates, format='%Y%m%d')
 ```
 
 [Back to top](#top)
+______________________________________________
 
 ## <a name="numpy">Numpy</a>
 
@@ -178,11 +179,13 @@ a = np.linespace(1,10,100)
 ```
 
 [Back to top](#top)
+______________________________________________
 
 ## <a name="scipy">Scipy</a>
 
 
 [Back to top](#top)
+______________________________________________
 
 ## <a name="matplot">matplotlib</a>
 
