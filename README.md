@@ -2,6 +2,7 @@
 
 # Tables of Contents:
 * [CLI Scripting](#cli)
+* [Unix](#unix)
 * [Git](#git)
 * [Python](#python)
     * [Pandas](#pandas)
@@ -15,6 +16,9 @@ ______________________________________________
 # List of things to look into:
 
 * MyPy (DropBox is currently working on MyPyC)
+* Download p4merge
+* look into internet extenders
+* find out what map() is
 
 ______________________________________________
 
@@ -22,6 +26,8 @@ ______________________________________________
 
 * [DateTime](https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/)
 * [Git Reference](https://git-scm.com/docs)
+* [Unix Cheat Sheet](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
+* [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet)
 * [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
 * [Visualizing `scipy.stats` distributions](https://stackoverflow.com/questions/37559470/what-do-all-the-distributions-available-in-scipy-stats-look-like)
@@ -38,7 +44,7 @@ ______________________________________________
 ```zsh
 function gitadder(){
     git pull
-    git add .
+    git add -A
     if [ "$1" != "" ] then
         git commit -m "$1: $(date '+%b %d, %Y %H:%M:%S')"
     else
@@ -57,6 +63,20 @@ gitadder "Enter update text"
 
 gitadder
 ```
+
+[Back to top](#top)
+______________________________________________
+
+# <a name="unix">Unix</a>
+
+* `echo "Hello World"` - prints message to screen
+* `echo "Hello World" > hello.txt` - prints message to file (creates new file or overwrites existing)
+* `echo "goodbye" >> hello.txt` - appends message to the end of file
+* `cat hello.txt` - prints file to terminal
+* `man ls` - print out a help menu for the command
+* `history > history.txt` - saves command history in a file
+* `grep <command filter>` - looks at sheet of text to find 
+* `!<history number>` - runs command from a certain line in history
 
 [Back to top](#top)
 ______________________________________________
@@ -83,10 +103,44 @@ ______________________________________________
 
 * `git push` - Send your updates and new files in your commit from your local machine to the remote repository
 
+* `git revert [commit]` - Undo the commit
+
+
+[Back to top](#top)
+______________________________________________
+
+# <a name="stats">Statistics</a>
+
+#### Conditional probability
+The probability of event A given B. When the two events are independent, the probabilty is simply P(A).
+
+![Conditional Probability](images/ConditionalProb.png)
+
+#### Bayes' theorem
+Describes the probability of a posterior event, based on previous conditions related to the event. For example, given the probabilities P(B) and P(B | A), Bayes' theorem can be applied to calculate P(A | B).
+
+Tip: it's a bayes problem if there's two different
+
+![Bayes' Theorem](images/BayesTheorem.png)
+
+#### Law of total probability
+
+![Total Probability](images/TotalProb.png)
+
 [Back to top](#top)
 ______________________________________________
 
 # <a name="python">Python</a>
+#### Generator expressions
+Some simple generators can be coded succinctly as expressions using a syntax similar to list comprehensions but with parentheses instead of square brackets. These expressions are designed for situations where the generator is used right away by an enclosing function. Generator expressions are more compact but less versatile than full generator definitions and tend to be more memory friendly than equivalent list comprehensions.
+
+```python
+sum(i*i for i in range(10))         # sum of squares
+
+# instead of...
+
+sum([i*i for i in range(10)])       # needlessly allocates a list in memory
+```
 
 ## <a name="pandas">Pandas</a>
 #### Create a DataFrame
