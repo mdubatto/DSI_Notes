@@ -4,6 +4,7 @@
 * [CLI Scripting](#cli)
 * [Unix](#unix)
 * [Git](#git)
+* [Statistics](#stats)
 * [Python](#python)
     * [Pandas](#pandas)
     * [Numpy](#numpy)
@@ -28,6 +29,7 @@ ______________________________________________
 * [Git Reference](https://git-scm.com/docs)
 * [Unix Cheat Sheet](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
 * [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet)
+* [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
 * [Color brewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Univariate distribution relationshipd](http://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
 * [Visualizing `scipy.stats` distributions](https://stackoverflow.com/questions/37559470/what-do-all-the-distributions-available-in-scipy-stats-look-like)
@@ -45,7 +47,7 @@ ______________________________________________
 function gitadder(){
     git pull
     git add -A
-    if [ "$1" != "" ] then
+    if [ "$1" != "" ]; then
         git commit -m "$1: $(date '+%b %d, %Y %H:%M:%S')"
     else
         git commit -m "Auto Update: $(date '+%b %d, %Y %H:%M:%S')"
@@ -75,8 +77,9 @@ ______________________________________________
 * `cat hello.txt` - prints file to terminal
 * `man ls` - print out a help menu for the command
 * `history > history.txt` - saves command history in a file
-* `grep <command filter>` - looks at sheet of text to find 
+* `grep <filter>` - looks at sheet of text and outputs only lines that have the keyword you are looking for
 * `!<history number>` - runs command from a certain line in history
+* `open https://google.com &` - opens google
 
 [Back to top](#top)
 ______________________________________________
@@ -141,6 +144,9 @@ sum(i*i for i in range(10))         # sum of squares
 
 sum([i*i for i in range(10)])       # needlessly allocates a list in memory
 ```
+
+* `dir(var_name)` - shows all methods available for a variable
+* `who` - list variable names
 
 ## <a name="pandas">Pandas</a>
 #### Create a DataFrame
