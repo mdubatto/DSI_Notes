@@ -87,26 +87,26 @@ ______________________________________________
 # <a name="git">Git</a>
 
 * `git status` - Display the state of the working directory and the staging area and see which changes have been staged, which haven't, and which files aren't being tracked by Git
-
 * `git log` - View version history of current branch (to exit this type `q`)
-
 * `git reset [file]` - Unstages the file, but it preserves the file contents.
-
 * `git reset [commit]` - Undoes all the commits after the specified commit and preserves the changes locally.
-
 * `git add .` - Adds all files from the root directory to the staging area
-
 * `git add -A` - Adds all files root and sub directories to the staging area
-
 * `git add [filename1 filename2]` - Adds only listed files to the staging area
-
 * `git commit -m "[Enter commit message]"` - Creates a new commit containing the current contents of the index
-
 * `git pull` - Fetches and merges changes on the remote server to your working directory
-
 * `git push` - Send your updates and new files in your commit from your local machine to the remote repository
-
 * `git revert [commit]` - Undo the commit
+
+#### Working on a team
+* `git clone` the person's repo
+* `git branch [branchname]`
+* `git checkout [branchname]`
+* `git add .`
+* `git commit -m "adding new branch to remote repo"`
+* `git push --set-upstream origin maria`
+
+* `git checkout master`
 
 
 [Back to top](#top)
@@ -172,6 +172,18 @@ sum([i*i for i in range(10)])       # needlessly allocates a list in memory
     df_csv = pd.read_csv('filename.csv')
     df_txt = pd.read_csv('filename.txt', sep='\t')
     ```
+
+#### Summary statistics (numerical variables)
+
+```python
+df.describe()
+```
+
+#### Correlation -- Pearson and Spearman (numerical variables)
+
+```python
+df.corr(method='pearson').round(3)
+```
 
 #### Drop a column
 
@@ -253,6 +265,17 @@ unif = np.random.normal(loc=0.0, scale=1.0, size=10**7)
 
 fig, ax = plt.subplots(figsize=(10, 4))
 _ = ax.hist(unif, bins=100, color="green")
+```
+
+#### Create a new array based on conditions
+
+```python
+arr = np.arange(10)
+out = np.where(arr % 2 == 1, -1, arr)
+print(arr)
+out
+#> [0 1 2 3 4 5 6 7 8 9]
+# array([ 0, -1,  2, -1,  4, -1,  6, -1,  8, -1])
 ```
 
 [Back to top](#top)
