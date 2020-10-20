@@ -10,6 +10,7 @@
     * [Numpy](#numpy)
     * [Scipy](#scipy)
     * [Matplotlib](#matplot)
+* [AWS](#aws)
 * [Machine Learning Workflow](#mlw)
 
 ______________________________________________
@@ -20,6 +21,9 @@ ______________________________________________
 * Download p4merge
 * look into internet extenders
 * find out what map() is
+* pyodbc
+* crontab, luige, apache, or jams for automation
+* dbeaver to get column names
 
 ______________________________________________
 
@@ -104,7 +108,7 @@ ______________________________________________
 * `git checkout [branchname]`
 * `git add .`
 * `git commit -m "adding new branch to remote repo"`
-* `git push --set-upstream origin maria`
+* `git push --set-upstream origin [branchname]`
 
 * `git checkout master`
 
@@ -112,7 +116,7 @@ ______________________________________________
 [Back to top](#top)
 ______________________________________________
 
-# <a name="stats">Statistics</a>
+# <a name="stats">Probability & Statistics</a>
 
 #### Conditional probability
 The probability of event A given B. When the two events are independent, the probabilty is simply P(A).
@@ -382,6 +386,53 @@ plt.plot(x,
 ```
 
 [Plot() Documentation](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html)
+
+
+[Back to top](#top)
+
+______________________________________________
+
+# <a name="aws">AWS</a>
+
+#### Doing this weird vm thing:
+
+In `~/.ssh/config` add...
+
+```bash
+Host examplename    # name of host
+ HostName 52.27.155.84  # replace with path from AWS
+ User ubuntu
+ IdentityFile ~/.ssh/rft5.pem
+```
+
+Call using `ssh examplename`
+
+#### Making a bucket and adding files to it
+
+```python
+import boto3
+
+s3 = boto3.client('s3')
+
+remote_file_name = 'cancer_rates.png'
+local_file_name = 'cancer_rates.png'
+bucket_name = 'mdubatto1'
+
+s3.create_bucket(Bucket=bucket_name)
+
+s3.upload_file(Filename=local_file_name, 
+               Bucket=bucket_name, 
+               Key=remote_file_name)
+```
+
+#### Copying a .py file from a local environment to a aws machine
+
+```bash
+scp local_file.py examplename:/home/ubuntu/remote_file.py
+```
+
+[Back to top](#top)
+
 ______________________________________________
 
 # <a name="mlw">Machine Learning Workflow</a>
