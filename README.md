@@ -11,6 +11,7 @@
     * [Scipy](#scipy)
     * [Matplotlib](#matplot)
 * [AWS](#aws)
+* [Docker](#docker)
 * [Machine Learning Workflow](#mlw)
 
 ______________________________________________
@@ -463,7 +464,7 @@ docker run --name sparkbook -p 8881:8888 -v "$PWD":/home/jovyan/work jupyter/pys
 - the `-p` flag is exposing port `8881`, so as not to collide with any other notebooks you have running.
 - the `-v` flag connects the filesystem in the container to your computer's filesystem. See the documentation for [docker volumes](https://docs.docker.com/storage/volumes/). 
   - Here, the container's folder `/home/jovyan/work` will be mapped to whichever folder you ran the `docker run` command from (`$PWD`). If you want to make your entire home folder visible to the docker container, navigate to `~` before running the above command. If you only want the container to see, say, a folder you cloned from github, navigate to `/path/to/repo_folder` first. Then you can **make changes from inside the container** and **run git commands outside the container**
-
+</br></br>
 #### Open a bash shell in a container
 
 ```zsh
