@@ -24,6 +24,8 @@ ______________________________________________
 * pyodbc
 * crontab, luige, apache, or jams for automation
 * dbeaver to get column names
+* postman for interpretting apis
+* toptal
 
 ______________________________________________
 
@@ -429,6 +431,43 @@ s3.upload_file(Filename=local_file_name,
 
 ```bash
 scp local_file.py examplename:/home/ubuntu/remote_file.py
+```
+
+[Back to top](#top)
+
+______________________________________________
+
+# <a name="docker">Docker</a>
+
+#### Postgres container
+
+```zsh
+docker run --name pgserv -d -p 5432:5432 -v "$PWD":/home/data -e POSTGRES_PASSWORD='password' postgres
+```
+
+- the `-d` flag means "run this container in the background"
+- `-p 5432:5432` means "connect port 5432 from this computer (localhost) to the container's port 5432". This will allow us to connect to the Postgres server (which is inside the container) from services running outside of the container (such as python, as we'll see later).
+  - Most services expect to find Postgres running on port 5432. If you have any previous installations of Postgres installed you may want to change this to 5435. If you do you will have to remember to specify what port to connect to working from your system.    
+- the `-v` flag connects the filesystem in the container to your computer's filesystem. See the documentation for [docker volumes](https://docs.docker.com/storage/volumes/). 
+  - Here, the container's folder `/home/data` will be mapped to whichever folder you ran the `docker run` command from (`$PWD`). If you want to make your entire home folder visible to the docker container, navigate to `~` before running the above command. If you only want the container to see, say, a folder you cloned from github, navigate to `/path/to/repo_folder` first. **Any changes made to files in this folder are immediately visible to the container and your native file system. This is important for the step of loading data into the database** 
+- the `-e` is setting up an enviroment variable which is the default password for postgres.  You most likely want to choose something better than the default `password` above.
+
+#### PySpark container
+
+```zsh
+docker run --name sparkbook -p 8881:8888 -v "$PWD":/home/jovyan/work jupyter/pyspark-notebook start.sh jupyter lab --LabApp.token=''
+```
+
+- this will take a while to download the first time you run it
+- here I've given this container the name `sparkbook`. You can call it whatever you like.
+- the `-p` flag is exposing port `8881`, so as not to collide with any other notebooks you have running.
+- the `-v` flag connects the filesystem in the container to your computer's filesystem. See the documentation for [docker volumes](https://docs.docker.com/storage/volumes/). 
+  - Here, the container's folder `/home/jovyan/work` will be mapped to whichever folder you ran the `docker run` command from (`$PWD`). If you want to make your entire home folder visible to the docker container, navigate to `~` before running the above command. If you only want the container to see, say, a folder you cloned from github, navigate to `/path/to/repo_folder` first. Then you can **make changes from inside the container** and **run git commands outside the container**
+
+#### Open a bash shell in a container
+
+```zsh
+docker exec -it <container name> bash
 ```
 
 [Back to top](#top)
