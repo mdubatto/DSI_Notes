@@ -12,7 +12,12 @@
     * [Matplotlib](#matplot)
 * [AWS](#aws)
 * [Docker](#docker)
-* [Machine Learning Workflow](#mlw)
+* [Machine Learning](#ml)
+    * [Bias Variance Tradeoff](#bvt)
+    * [Cross Validation](#cv)
+    * [sklearn Code Examples](#skl)
+    * [Models](#models)
+        * [kNN](#knn)
 
 ______________________________________________
 
@@ -27,6 +32,7 @@ ______________________________________________
 * dbeaver to get column names
 * postman for interpretting apis
 * toptal
+* haversine
 
 ______________________________________________
 
@@ -34,6 +40,7 @@ ______________________________________________
 
 * [DateTime](https://www.analyticsvidhya.com/blog/2020/05/datetime-variables-python-pandas/)
 * [Git Reference](https://git-scm.com/docs)
+* [*args and *kargs gist](https://gist.github.com/ljbelenky/2feec53d67479750143a0fed7f4ff99c)
 * [Unix Cheat Sheet](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html)
 * [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet)
 * [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
@@ -475,8 +482,128 @@ docker exec -it <container name> bash
 
 ______________________________________________
 
-# <a name="mlw">Machine Learning Workflow</a>
+# <a name="ml">Machine Learning</a>
 
+## <a name="bvt">Bias Variance Tradeoff</a>
 
+![Bias Variance Tradeoff](images/bias_var_tradeoff.png)
+
+High Bias:
+* Model is underfit
+* Line is too rigid
+* Not enough features
+* Errors tend towards one side or the other in blocks
+* Error magnitude not randomly distributed
+
+High Variance:
+* Model is overfit
+* Line is too flexible
+* Too many features
+* Errors tend to alternate positive/negative
+* Error magnitudes normally distributed
+
+Conclusion:
+* Optimal model has minimum total error
+* Neither overfit nor underfit
+* It is necessary to do train-test split to observe error on unseen data
+* All else being equal, prefer simpler models to more complex
 
 [Back to top](#top)
+______________________________________________
+
+## <a name="cv">Cross Validation</a>
+
+We use cross-validation for two things:
+1. Attempting to quantify how well a model (of some given complexity) will predict on an unseen data set
+2. Tuning hyperparameters of models to get best predictions.
+
+The code snippet below loads data on the iris training set, splits it into a train/validation and test set, instantiates a logistic regression model and runs cross validation on the train/validation set with 5 folds.
+
+```python
+from sklearn.model_selection import train_test_split,cross_val_score
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+
+iris = load_iris()
+X_trainval, X_test, y_trainval, y_test = train_test_split(iris.data, iris.target, test_size=0.33, random_state=42)
+
+logreg = LogisticRegression()
+scores = cross_val_score(logreg, X_trainval, y_trainval, cv=5)
+print(f"Cross-validation scores: {scores}")
+```
+
+Note: Don't freak out if you have testing error lower than training error...it means your outliers probably all got randomly selected in the training set
+
+KFolds - k = 5 is common
+
+[Back to top](#top)
+______________________________________________
+
+## <a name="skl">sklearn code snippets</a>
+
+### train_test_split
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_trainval, X_test, y_trainval, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+```
+
+### Get list of scorers
+```python
+import sklearn
+
+sorted(sklearn.metrics.SCORERS.keys())
+```
+
+### Building a model
+* similar process for all sklearn models...just different parameters
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from numpy as np
+
+reg = LinearRegression()
+reg.fit(X_train, y_train)
+y_pred = reg.predict(X_test)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print(f"Root Mean Squared Error: {rmse}")
+```
+
+[Back to top](#top)
+______________________________________________
+
+## <a name="models">Models</a>
+### <a name="knn">k-NN</a>
+
+Methods for calculating distance:
+![Distance equations](images/knn_distance.png)
+
+Pros:
+* Super simple
+* Training is trivial (store the data)
+* Works with any number of classes
+* Easy to add more data
+* Few hyperparameters:
+    * distance metric
+    * k
+
+Cons:
+* High prediction cost (especially for large datasets)
+* Bad with high dimensions
+* Categorical features don’t work well
+
+Other notes:
+* Rule of thumb - k = n**0.5
+* Don't forget to scale your data!!
+* Works well for dimensions < 5 (curse of dimensionality)
+* The more dimensions you have the more data points are needed to maintain density
+* n**(d<sub>new</sub>/d<sub>original</sub>)
+
+[Back to top](#top)
+
+
+## Ridge
+
+greater lambda means simpler model
